@@ -66,15 +66,6 @@ export class SignUp extends Component {
               <Text style={styles.loginText}>Continue</Text>
             </TouchableOpacity>
 
-            <Text style={{marginTop: 20, marginBottom: 20}}>
-              <Text style={{color: COLOR.subtitle}}>
-                By sigining up, you're agree to our
-              </Text>
-              <Text style={{color: COLOR.primary}}> Term and condtions </Text>
-              <Text style={{color: COLOR.subtitle}}>and</Text>
-              <Text style={{color: COLOR.primary}}> Privacy Policy </Text>
-            </Text>
-
             <Text style={{textAlign: 'center', color: COLOR.subtitle}}>
               {' '}
               OR{' '}
@@ -95,6 +86,20 @@ export class SignUp extends Component {
                 </Text>
               </View>
             </TouchableOpacity>
+            <Text style={{marginTop: 20, marginBottom: 20}}>
+              <Text style={{color: COLOR.subtitle}}>
+                By sigining up, you're agree to our
+              </Text>
+              <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
+                {' '}
+                Term and condtions{' '}
+              </Text>
+              <Text style={{color: COLOR.subtitle}}>and</Text>
+              <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
+                {' '}
+                Privacy Policy{' '}
+              </Text>
+            </Text>
           </View>
 
           <View

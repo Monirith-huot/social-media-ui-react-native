@@ -4,10 +4,10 @@ import SignUp from '../screens/SignUp';
 import EnterOTP from '../screens/EnterOTP';
 import ForgetPassword from '../screens/ForgetPassword';
 import ResetPassword from '../screens/ResetPassword';
+import HomepageTab from './HomepageNavigator';
 import React from 'react';
 import * as Icons from 'react-native-heroicons/solid';
 const Stack = createStackNavigator();
-import COLOR from '../contains/pallete';
 
 function AuthNavigator() {
   return (
@@ -52,6 +52,12 @@ function AuthNavigator() {
         name={'ResetPassword'}
         component={ResetPassword}
         options={{title: '', headerShown: false, headerBackTitleVisible: false}}
+      />
+
+      <Stack.Screen
+        name={'HomepageTab'}
+        component={HomepageTab}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

@@ -63,7 +63,9 @@ export class LogIn extends Component {
             </TouchableOpacity>
             {/* </TextInput> */}
 
-            <TouchableOpacity style={styles.loginScreenButton}>
+            <TouchableOpacity
+              style={styles.loginScreenButton}
+              onPress={() => this.props.navigation.replace('HomepageTab')}>
               <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
 
