@@ -25,12 +25,34 @@ function AuthNavigator() {
           title: '',
           headerShown: false,
           headerBackTitleVisible: false,
+          // headerBackImage: () => <Icons.ChevronLeftIcon />,
+        }}
+      />
+      <Stack.Screen
+        name={'EnterOTP'}
+        component={EnterOTP}
+        options={{
+          title: '',
+          headerShown: false,
+          headerBackTitleVisible: false,
+          // headerBackImage: () => <Icons.ChevronLeftIcon />,
+        }}
+      />
+      <Stack.Screen
+        name={'ForgetPassword'}
+        component={ForgetPassword}
+        options={{
+          title: '',
+          headerShown: false,
+          headerBackTitleVisible: false,
           headerBackImage: () => <Icons.ChevronLeftIcon />,
         }}
       />
-      <Stack.Screen name={'EnterOTP'} component={EnterOTP} />
-      <Stack.Screen name={'ForgetPassword'} component={ForgetPassword} />
-      <Stack.Screen name={'ResetPassword'} component={ResetPassword} />
+      <Stack.Screen
+        name={'ResetPassword'}
+        component={ResetPassword}
+        options={{title: '', headerShown: false, headerBackTitleVisible: false}}
+      />
     </Stack.Navigator>
   );
 }

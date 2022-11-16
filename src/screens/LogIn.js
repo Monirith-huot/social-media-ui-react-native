@@ -21,77 +21,91 @@ export class LogIn extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={styles.default}>
-        <View style={{flex: 10}}>
-          <View style={styles.container}>
-            <Logo width={300} height={300} />
-          </View>
-          <Text style={styles.headerStyle}>Login</Text>
+      <View style={{backgroundColor: 'white', flex: 12}}>
+        <SafeAreaView style={styles.default}>
+          <View style={{flex: 10}}>
+            <View style={styles.container}>
+              <Logo width={250} height={250} />
+            </View>
+            <Text style={styles.headerStyle}>Login</Text>
 
-          <View style={styles.textInput}>
-            <Icons.AtSymbolIcon style={{color: 'grey', marginRight: 10}} />
-            <TextInput
-              placeholder="Enter your Name "
-              style={styles.inputBox}
-              onChangeText={text => {
-                console.warn(text);
-              }}
-            />
-          </View>
+            <View style={styles.textInput}>
+              <Icons.AtSymbolIcon style={{color: 'grey', marginRight: 10}} />
+              <TextInput
+                placeholder="Enter your Name "
+                style={styles.inputBox}
+                onChangeText={text => {
+                  console.warn(text);
+                }}
+              />
+            </View>
 
-          <View style={styles.textInput}>
-            <Icons.LockClosedIcon style={{color: 'grey', marginRight: 10}} />
-            <TextInput style={styles.inputBox} placeholder="Enter password " />
-          </View>
+            <View style={styles.textInput}>
+              <Icons.LockClosedIcon style={{color: 'grey', marginRight: 10}} />
+              <TextInput
+                style={styles.inputBox}
+                placeholder="Enter password "
+              />
+            </View>
 
-          <Text
+            {/* <TextInput
             style={{
               textAlign: 'right',
               color: COLOR.primary,
               fontWeight: 'bold',
-            }}>
-            Forget password
-          </Text>
-
-          <TouchableOpacity style={styles.loginScreenButton}>
-            <Text style={styles.loginText}>Login</Text>
-          </TouchableOpacity>
-
-          <Text style={{textAlign: 'center', color: COLOR.subtitle}}> OR </Text>
-
-          <TouchableOpacity style={styles.loginScreenButtonWithGoogle}>
-            <View style={styles.centerRowItem}>
-              <Google width={40} height={40} />
-              <Text
-                style={{
-                  color: '#000',
-                  textAlign: 'center',
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  fontSize: 15,
-                }}>
-                Login with Google
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            flex: 2,
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-          }}>
-          <View style={[styles.centerRowItem]}>
-            <Text> New to dogbook? </Text>
+            }}> */}
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('SignUp')}>
+              style={{flexDirection: 'row', justifyContent: 'flex-end'}}
+              onPress={() => this.props.navigation.navigate('ForgetPassword')}>
               <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
-                Register
+                Forget Password
               </Text>
             </TouchableOpacity>
+            {/* </TextInput> */}
+
+            <TouchableOpacity style={styles.loginScreenButton}>
+              <Text style={styles.loginText}>Login</Text>
+            </TouchableOpacity>
+
+            <Text style={{textAlign: 'center', color: COLOR.subtitle}}>
+              {' '}
+              OR{' '}
+            </Text>
+
+            <TouchableOpacity style={styles.loginScreenButtonWithGoogle}>
+              <View style={styles.centerRowItem}>
+                <Google width={40} height={40} />
+                <Text
+                  style={{
+                    color: '#000',
+                    textAlign: 'center',
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    fontSize: 15,
+                  }}>
+                  Login with Google
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
-        </View>
-      </SafeAreaView>
+          <View
+            style={{
+              flex: 2,
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+            }}>
+            <View style={[styles.centerRowItem]}>
+              <Text> New to dogbook? </Text>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('SignUp')}>
+                <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
+                  Register
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </SafeAreaView>
+      </View>
     );
   }
 }

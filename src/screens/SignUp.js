@@ -10,87 +10,111 @@ import React, {Component} from 'react';
 import * as Icons from 'react-native-heroicons/solid';
 import COLOR from '../contains/pallete';
 import Signup from '../image/signup.svg';
+import Google from '../image/google.svg';
 
 export class SignUp extends Component {
   render() {
     return (
-      <SafeAreaView style={styles.default}>
-        <View style={{flex: 10}}>
-          <Icons.ChevronLeftIcon
-            size={30}
-            color="#3C4048"
-            onPress={() => this.props.navigation.goBack(null)}
-          />
-
-          <View style={{alignItems: 'center'}}>
-            <Signup width={300} height={300} />
-          </View>
-          <Text style={styles.headerStyle}>Sign up</Text>
-
-          <View style={styles.textInput}>
-            <Icons.AtSymbolIcon style={{color: 'grey', marginRight: 10}} />
-            <TextInput
-              placeholder="Enter your gmail "
-              style={styles.inputBox}
-              onChangeText={text => {
-                console.warn(text);
-              }}
+      <View style={{flex: 12, backgroundColor: 'white'}}>
+        <SafeAreaView style={styles.default}>
+          <View style={{flex: 10}}>
+            <Icons.ChevronLeftIcon
+              size={30}
+              color="#3C4048"
+              onPress={() => this.props.navigation.goBack(null)}
             />
-          </View>
 
-          <View style={styles.textInput}>
-            <Icons.UserCircleIcon style={{color: 'grey', marginRight: 10}} />
-            <TextInput
-              placeholder="Enter your Name "
-              style={styles.inputBox}
-              onChangeText={text => {
-                console.warn(text);
-              }}
-            />
-          </View>
+            <View style={{alignItems: 'center'}}>
+              <Signup width={200} height={200} />
+            </View>
+            <Text style={styles.headerStyle}>Sign up</Text>
 
-          <View style={styles.textInput}>
-            <Icons.PhoneIcon style={{color: 'grey', marginRight: 10}} />
-            <TextInput
-              placeholder="Enter your Name "
-              style={styles.inputBox}
-              onChangeText={text => {
-                console.warn(text);
-              }}
-            />
-          </View>
+            <View style={styles.textInput}>
+              <Icons.AtSymbolIcon style={{color: 'grey', marginRight: 10}} />
+              <TextInput
+                placeholder="Enter your gmail "
+                style={styles.inputBox}
+                onChangeText={text => {
+                  console.warn(text);
+                }}
+              />
+            </View>
 
-          <Text style={{marginTop: 20, marginBottom: 20}}>
-            <Text style={{color: COLOR.subtitle}}>
-              By sigining up, you're agree to our
-            </Text>
-            <Text style={{color: COLOR.primary}}> Term and condtions </Text>
-            <Text style={{color: COLOR.subtitle}}>and</Text>
-            <Text style={{color: COLOR.primary}}> Privacy Policy </Text>
-          </Text>
+            <View style={styles.textInput}>
+              <Icons.UserCircleIcon style={{color: 'grey', marginRight: 10}} />
+              <TextInput
+                placeholder="Enter your Name "
+                style={styles.inputBox}
+                onChangeText={text => {
+                  console.warn(text);
+                }}
+              />
+            </View>
 
-          <TouchableOpacity style={styles.loginScreenButton}>
-            <Text style={styles.loginText}>Continue</Text>
-          </TouchableOpacity>
-        </View>
+            <View style={styles.textInput}>
+              <Icons.PhoneIcon style={{color: 'grey', marginRight: 10}} />
+              <TextInput
+                placeholder="Enter your Name "
+                style={styles.inputBox}
+                onChangeText={text => {
+                  console.warn(text);
+                }}
+              />
+            </View>
 
-        <View
-          style={{
-            flex: 2,
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-          }}>
-          <View style={[styles.centerRowItem]}>
-            <Text> Joined us before </Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('SignUp')}>
-              <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
-                Login
+            <TouchableOpacity style={styles.loginScreenButton}>
+              <Text style={styles.loginText}>Continue</Text>
+            </TouchableOpacity>
+
+            <Text style={{marginTop: 20, marginBottom: 20}}>
+              <Text style={{color: COLOR.subtitle}}>
+                By sigining up, you're agree to our
               </Text>
+              <Text style={{color: COLOR.primary}}> Term and condtions </Text>
+              <Text style={{color: COLOR.subtitle}}>and</Text>
+              <Text style={{color: COLOR.primary}}> Privacy Policy </Text>
+            </Text>
+
+            <Text style={{textAlign: 'center', color: COLOR.subtitle}}>
+              {' '}
+              OR{' '}
+            </Text>
+
+            <TouchableOpacity style={styles.loginScreenButtonWithGoogle}>
+              <View style={styles.centerRowItem}>
+                <Google width={40} height={40} />
+                <Text
+                  style={{
+                    color: '#000',
+                    textAlign: 'center',
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    fontSize: 15,
+                  }}>
+                  Login with Google
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
-        </View>
-      </SafeAreaView>
+
+          <View
+            style={{
+              flex: 2,
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+            }}>
+            <View style={[styles.centerRowItem]}>
+              <Text> Joined us before </Text>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Login')}>
+                <Text style={{color: COLOR.primary, fontWeight: 'bold'}}>
+                  Login
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </SafeAreaView>
+      </View>
     );
   }
 }
@@ -124,7 +148,7 @@ const styles = StyleSheet.create({
   },
   loginScreenButton: {
     marginTop: 25,
-    marginBottom: 25,
+    marginBottom: 10,
     paddingTop: 15,
     paddingBottom: 15,
     backgroundColor: COLOR.primary,
@@ -138,6 +162,15 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     fontSize: 15,
     fontWeight: 'bold',
+  },
+  loginScreenButtonWithGoogle: {
+    marginTop: 25,
+    marginBottom: 25,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: COLOR.secondary,
+    opacity: 1,
+    borderRadius: 15,
   },
 });
 
