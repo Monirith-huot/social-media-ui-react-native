@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 export class Profile extends Component {
   render() {
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Profile</Text>
       </View>
     );

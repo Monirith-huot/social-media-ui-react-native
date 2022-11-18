@@ -3,19 +3,23 @@ import {
   View,
   SafeAreaView,
   StyleSheet,
-  TextInput,
+  // TextInput,
   TouchableOpacity,
-  Button,
+  Pressable,
 } from 'react-native';
 import React, {Component, useState} from 'react';
 import * as Icons from 'react-native-heroicons/solid';
 import COLOR from '../contains/pallete';
 import Logo from '../image/login_logo.svg';
 import Google from '../image/google.svg';
+import {TextInput} from 'react-native-paper';
 export class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: '',
+      password: '',
+      show: false,
       text: '',
     };
   }
@@ -25,35 +29,48 @@ export class LogIn extends Component {
         <SafeAreaView style={styles.default}>
           <View style={{flex: 10}}>
             <View style={styles.container}>
-              <Logo width={250} height={250} />
+              <Logo width={250} height={250} style={{marginBottom: 50}} />
             </View>
             <Text style={styles.headerStyle}>Login</Text>
 
             <View style={styles.textInput}>
-              <Icons.AtSymbolIcon style={{color: 'grey', marginRight: 10}} />
               <TextInput
-                placeholder="Enter your Name "
-                style={styles.inputBox}
-                onChangeText={text => {
-                  console.warn(text);
-                }}
+                underlineColor="grey"
+                activeUnderlineColor={COLOR.primary}
+                selectionColor={COLOR.primary}
+                activeOutlineColor={COLOR.primary}
+                placeholder="username"
+                onChangeText={text => this.setState({userName: text})}
+                style={{flex: 1, backgroundColor: 'white'}}
               />
             </View>
 
             <View style={styles.textInput}>
-              <Icons.LockClosedIcon style={{color: 'grey', marginRight: 10}} />
               <TextInput
-                style={styles.inputBox}
-                placeholder="Enter password "
+                underlineColor="grey"
+                activeUnderlineColor={COLOR.primary}
+                selectionColor={COLOR.primary}
+                activeOutlineColor={COLOR.primary}
+                placeholder="password"
+                onChangeText={text => this.setState({password: text})}
+                secureTextEntry={this.state.show ? false : true}
+                style={{flex: 1, backgroundColor: 'white'}}
+                right={
+                  this.state.show == false ? (
+                    <TextInput.Icon
+                      icon={Icons.EyeSlashIcon}
+                      onPress={() => this.setState({show: !this.state.show})}
+                    />
+                  ) : (
+                    <TextInput.Icon
+                      icon={Icons.EyeIcon}
+                      onPress={() => this.setState({show: !this.state.show})}
+                    />
+                  )
+                }
               />
             </View>
 
-            {/* <TextInput
-            style={{
-              textAlign: 'right',
-              color: COLOR.primary,
-              fontWeight: 'bold',
-            }}> */}
             <TouchableOpacity
               style={{flexDirection: 'row', justifyContent: 'flex-end'}}
               onPress={() => this.props.navigation.navigate('ForgetPassword')}>
@@ -65,12 +82,17 @@ export class LogIn extends Component {
 
             <TouchableOpacity
               style={styles.loginScreenButton}
-              onPress={() => this.props.navigation.replace('HomepageTab')}>
+              onPress={() =>
+                this.props.navigation.replace('Welcome', {
+                  userName: this.state.userName,
+                  password: this.state.password,
+                })
+              }>
               <Text style={styles.loginText}>Login</Text>
             </TouchableOpacity>
 
             <Text style={{textAlign: 'center', color: COLOR.subtitle}}>
-              {' '}
+              {''}
               OR{' '}
             </Text>
 
